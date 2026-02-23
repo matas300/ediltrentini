@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard — Edil Trentini Admin</title>
+  <link rel="stylesheet" href="/admin/css/admin.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Top bar -->
+  <header class="admin-header">
+    <div class="admin-header-inner">
+      <a href="/" class="admin-logo">
+        <svg width="28" height="28" viewBox="0 0 32 32" fill="none">
+          <rect x="2" y="14" width="28" height="16" rx="2" fill="#E8751A"/>
+          <polygon points="16,2 30,14 2,14" fill="#fff" opacity="0.3"/>
+          <rect x="12" y="18" width="8" height="12" fill="#F5F3EF"/>
+        </svg>
+        <span>Edil<strong>Trentini</strong> <small>Admin</small></span>
+      </a>
+      <div class="admin-actions">
+        <a href="/" class="btn btn-ghost" target="_blank">Vedi Sito</a>
+        <button class="btn btn-ghost" id="logoutBtn">Esci</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main content -->
+  <main class="admin-main">
+    <div class="admin-container">
+      <!-- Header row -->
+      <div class="admin-title-row">
+        <h1>Gestione Lavori</h1>
+        <button class="btn btn-primary" id="addProjectBtn">+ Nuovo Lavoro</button>
+      </div>
+
+      <!-- Project form (hidden by default) -->
+      <div class="project-form-wrapper" id="projectFormWrapper" style="display:none;">
+        <form id="projectForm" enctype="multipart/form-data">
+          <input type="hidden" id="projectId" value="">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="projectTitle">Titolo *</label>
+              <input type="text" id="projectTitle" name="title" required placeholder="Es: Ristrutturazione Villa Monterenzio">
+            </div>
+            <div class="form-group">
+              <label for="projectCategory">Categoria</label>
+              <select id="projectCategory" name="category">
+                <option value="">Seleziona...</option>
+                <option value="Costruzione">Costruzione</option>
+                <option value="Ristrutturazione">Ristrutturazione</option>
+                <option value="Tinteggiatura">Tinteggiatura</option>
+                <option value="Posa Vetri">Posa Vetri</option>
+                <option value="Finiture">Finiture</option>
+                <option value="Altro">Altro</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="projectDescription">Descrizione</label>
+            <textarea id="projectDescription" name="description" rows="4" placeholder="Descrivi il lavoro svolto..."></textarea>
+          </div>
+          <div class="form-group">
+            <label>Immagini</label>
+            <div class="file-upload" id="fileUploadArea">
+              <input type="file" id="projectImages" name="images" multiple accept="image/*">
+              <div class="file-upload-label">
+                <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><rect x="4" y="6" width="24" height="20" rx="3" stroke="#999" stroke-width="2"/><circle cx="12" cy="14" r="3" stroke="#999" stroke-width="2"/><path d="M4,22 L12,16 L18,20 L24,14 L28,18" stroke="#999" stroke-width="2"/></svg>
+                <span>Trascina le immagini qui o <strong>clicca per caricare</strong></span>
+                <small>JPG, PNG, WEBP — Max 10MB per immagine</small>
+              </div>
+            </div>
+            <!-- Existing images (edit mode) -->
+            <div class="existing-images" id="existingImages"></div>
+          </div>
+          <div class="form-actions">
+            <button type="submit" class="btn btn-primary" id="formSubmitBtn">Salva Lavoro</button>
+            <button type="button" class="btn btn-ghost" id="cancelFormBtn">Annulla</button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Projects list -->
+      <div class="projects-list" id="projectsList">
+        <div class="loading">Caricamento...</div>
+      </div>
+    </div>
+  </main>
+
+  <script src="/admin/js/admin.js"></script>
+</body>
+</html>

@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edil Trentini S.N.C. — Costruzioni e Ristrutturazioni a Monterenzio (BO)</title>
+  <meta name="description" content="Edil Trentini S.N.C. - Impresa edile specializzata in costruzioni, ristrutturazioni e finiture a Monterenzio, Bologna. Dal 2008 al vostro servizio.">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar" id="navbar">
+    <div class="container nav-container">
+      <a href="#" class="logo">
+        <span class="logo-icon">
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+            <rect x="2" y="14" width="28" height="16" rx="2" fill="#E8751A"/>
+            <polygon points="16,2 30,14 2,14" fill="#2D2D2D"/>
+            <rect x="12" y="18" width="8" height="12" fill="#F5F3EF"/>
+            <rect x="5" y="17" width="5" height="5" rx="1" fill="#F5F3EF" opacity="0.8"/>
+            <rect x="22" y="17" width="5" height="5" rx="1" fill="#F5F3EF" opacity="0.8"/>
+          </svg>
+        </span>
+        <span class="logo-text">Edil<strong>Trentini</strong></span>
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#chi-siamo">Chi Siamo</a></li>
+        <li><a href="#servizi">Servizi</a></li>
+        <li><a href="#lavori">I Nostri Lavori</a></li>
+        <li><a href="#contatti">Contatti</a></li>
+        <li><a href="#contatti" class="btn btn-nav">Preventivo Gratuito</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero" id="hero">
+    <div class="hero-bg">
+      <svg viewBox="0 0 1440 600" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+        <!-- Sky gradient -->
+        <defs>
+          <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#87CEEB"/>
+            <stop offset="100%" stop-color="#E8D5B7"/>
+          </linearGradient>
+          <linearGradient id="ground" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#8B7355"/>
+            <stop offset="100%" stop-color="#6B5B3E"/>
+          </linearGradient>
+        </defs>
+        <rect width="1440" height="600" fill="url(#sky)"/>
+        <!-- Hills -->
+        <path d="M0,400 Q200,320 400,380 Q600,300 800,360 Q1000,280 1200,350 Q1350,310 1440,340 L1440,600 L0,600Z" fill="#4A7C59" opacity="0.6"/>
+        <path d="M0,420 Q300,370 600,410 Q900,360 1200,400 L1440,380 L1440,600 L0,600Z" fill="#3D6B4A" opacity="0.7"/>
+        <!-- Ground -->
+        <rect x="0" y="460" width="1440" height="140" fill="url(#ground)"/>
+        <!-- Building under construction -->
+        <rect x="500" y="280" width="200" height="180" fill="#D4C4A8" stroke="#B8A88A" stroke-width="2"/>
+        <rect x="520" y="300" width="40" height="50" fill="#87CEEB" stroke="#6BA3C7" stroke-width="1"/>
+        <rect x="580" y="300" width="40" height="50" fill="#87CEEB" stroke="#6BA3C7" stroke-width="1"/>
+        <rect x="640" y="300" width="40" height="50" fill="#87CEEB" stroke="#6BA3C7" stroke-width="1"/>
+        <rect x="520" y="370" width="40" height="50" fill="#87CEEB" stroke="#6BA3C7" stroke-width="1"/>
+        <rect x="640" y="370" width="40" height="50" fill="#87CEEB" stroke="#6BA3C7" stroke-width="1"/>
+        <rect x="575" y="390" width="50" height="70" fill="#8B6914" stroke="#6B4F0E" stroke-width="1"/>
+        <!-- Crane -->
+        <rect x="740" y="120" width="8" height="340" fill="#E8751A"/>
+        <rect x="660" y="120" width="180" height="8" fill="#E8751A"/>
+        <line x1="660" y1="128" x2="744" y2="200" stroke="#E8751A" stroke-width="3"/>
+        <line x1="840" y1="128" x2="748" y2="200" stroke="#E8751A" stroke-width="3"/>
+        <rect x="660" y="116" width="4" height="20" fill="#2D2D2D"/>
+        <line x1="662" y1="136" x2="662" y2="300" stroke="#555" stroke-width="1" stroke-dasharray="4,4"/>
+        <!-- Scaffolding -->
+        <rect x="350" y="300" width="120" height="160" fill="none" stroke="#C0C0C0" stroke-width="2"/>
+        <line x1="350" y1="340" x2="470" y2="340" stroke="#C0C0C0" stroke-width="2"/>
+        <line x1="350" y1="380" x2="470" y2="380" stroke="#C0C0C0" stroke-width="2"/>
+        <line x1="350" y1="420" x2="470" y2="420" stroke="#C0C0C0" stroke-width="2"/>
+        <line x1="390" y1="300" x2="390" y2="460" stroke="#C0C0C0" stroke-width="2"/>
+        <line x1="430" y1="300" x2="430" y2="460" stroke="#C0C0C0" stroke-width="2"/>
+        <!-- Construction worker -->
+        <circle cx="900" cy="400" r="15" fill="#FFD4A8"/>
+        <rect x="885" y="385" width="30" height="8" rx="2" fill="#E8751A"/>
+        <rect x="888" y="415" width="24" height="35" fill="#E8751A"/>
+        <rect x="885" y="450" width="12" height="20" fill="#2D2D2D"/>
+        <rect x="903" y="450" width="12" height="20" fill="#2D2D2D"/>
+        <!-- Sun -->
+        <circle cx="1200" cy="100" r="50" fill="#FFD700" opacity="0.8"/>
+        <circle cx="1200" cy="100" r="40" fill="#FFF4CC"/>
+      </svg>
+    </div>
+    <div class="container hero-content">
+      <h1>Costruiamo il tuo <span class="highlight">futuro</span></h1>
+      <p class="hero-subtitle">Dal 2008, Edil Trentini realizza costruzioni e ristrutturazioni di qualità nel cuore dell'Appennino Bolognese. Affidabilità, competenza e passione in ogni progetto.</p>
+      <div class="hero-cta">
+        <a href="#contatti" class="btn btn-primary btn-lg">Richiedi Preventivo Gratuito</a>
+        <a href="#lavori" class="btn btn-outline btn-lg">Scopri i Nostri Lavori</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat">
+          <span class="stat-number">17+</span>
+          <span class="stat-label">Anni di esperienza</span>
+        </div>
+        <div class="stat">
+          <span class="stat-number">100+</span>
+          <span class="stat-label">Progetti completati</span>
+        </div>
+        <div class="stat">
+          <span class="stat-number">100%</span>
+          <span class="stat-label">Clienti soddisfatti</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Chi Siamo -->
+  <section class="section" id="chi-siamo">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-image">
+          <svg viewBox="0 0 500 400" xmlns="http://www.w3.org/2000/svg">
+            <rect width="500" height="400" rx="16" fill="#F0EBE3"/>
+            <!-- Team scene -->
+            <rect x="50" y="200" width="400" height="150" rx="4" fill="#D4C4A8"/>
+            <!-- Blueprint/table -->
+            <rect x="150" y="250" width="200" height="10" fill="#8B6914"/>
+            <rect x="140" y="260" width="8" height="90" fill="#8B6914"/>
+            <rect x="352" y="260" width="8" height="90" fill="#8B6914"/>
+            <rect x="160" y="235" width="180" height="20" rx="2" fill="#E3F0FF" stroke="#90B8DE" stroke-width="1"/>
+            <line x1="170" y1="240" x2="330" y2="240" stroke="#90B8DE" stroke-width="0.5"/>
+            <line x1="170" y1="245" x2="300" y2="245" stroke="#90B8DE" stroke-width="0.5"/>
+            <line x1="170" y1="250" x2="320" y2="250" stroke="#90B8DE" stroke-width="0.5"/>
+            <!-- Person 1 -->
+            <circle cx="180" cy="180" r="25" fill="#FFD4A8"/>
+            <rect cx="180" x="160" y="205" width="40" height="50" rx="4" fill="#E8751A"/>
+            <rect x="165" y="170" width="30" height="10" rx="3" fill="#E8751A"/>
+            <!-- Person 2 -->
+            <circle cx="320" cy="180" r="25" fill="#FFD4A8"/>
+            <rect x="300" y="205" width="40" height="50" rx="4" fill="#4A7C59"/>
+            <rect x="305" y="170" width="30" height="10" rx="3" fill="#4A7C59"/>
+            <!-- Tools -->
+            <rect x="80" y="300" width="40" height="8" rx="2" fill="#C0C0C0" transform="rotate(-30 100 304)"/>
+            <rect x="370" y="290" width="8" height="40" fill="#8B6914"/>
+            <polygon points="374,280 366,290 382,290" fill="#C0C0C0"/>
+            <!-- Text label -->
+            <text x="250" y="385" text-anchor="middle" font-family="Inter, sans-serif" font-size="14" fill="#666">Marco e Tiziano Trentini</text>
+          </svg>
+        </div>
+        <div class="about-text">
+          <span class="section-badge">Chi Siamo</span>
+          <h2>Una tradizione di <span class="highlight">eccellenza</span> edile</h2>
+          <p>Fondata nel <strong>2008</strong> da Marco e Tiziano Trentini, la nostra impresa nasce dalla passione per l'edilizia e dal desiderio di offrire un servizio completo e di qualità nel territorio dell'Appennino Bolognese.</p>
+          <p>Con sede a <strong>Monterenzio</strong>, nel cuore delle colline bolognesi, operiamo su tutto il territorio provinciale, dalla costruzione di nuovi edifici alla ristrutturazione completa, dalle finiture di pregio alla tinteggiatura professionale.</p>
+          <div class="about-features">
+            <div class="about-feature">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E8751A" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+              <span>Preventivi gratuiti e trasparenti</span>
+            </div>
+            <div class="about-feature">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E8751A" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+              <span>Materiali di prima qualità</span>
+            </div>
+            <div class="about-feature">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E8751A" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+              <span>Rispetto dei tempi di consegna</span>
+            </div>
+            <div class="about-feature">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E8751A" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+              <span>Assistenza post-lavori</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Servizi -->
+  <section class="section section-alt" id="servizi">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge">I Nostri Servizi</span>
+        <h2>Soluzioni complete per ogni <span class="highlight">esigenza</span></h2>
+        <p>Dalla progettazione alla realizzazione, offriamo un servizio chiavi in mano per ogni tipo di intervento edile.</p>
+      </div>
+      <div class="services-grid">
+        <!-- Costruzione -->
+        <div class="service-card">
+          <div class="service-icon">
+            <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="12" y="28" width="40" height="30" rx="2" fill="#E8751A" opacity="0.15"/>
+              <rect x="12" y="28" width="40" height="30" rx="2" stroke="#E8751A" stroke-width="2"/>
+              <polygon points="32,8 52,28 12,28" fill="#E8751A" opacity="0.15" stroke="#E8751A" stroke-width="2"/>
+              <rect x="26" y="40" width="12" height="18" fill="#E8751A" opacity="0.3" stroke="#E8751A" stroke-width="1.5"/>
+              <rect x="16" y="34" width="8" height="8" rx="1" stroke="#E8751A" stroke-width="1.5"/>
+              <rect x="40" y="34" width="8" height="8" rx="1" stroke="#E8751A" stroke-width="1.5"/>
+            </svg>
+          </div>
+          <h3>Costruzione</h3>
+          <p>Realizziamo edifici residenziali e commerciali chiavi in mano, dalla fondazione al tetto, con materiali di qualità e tecniche all'avanguardia.</p>
+        </div>
+        <!-- Ristrutturazione -->
+        <div class="service-card">
+          <div class="service-icon">
+            <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="8" y="20" width="48" height="36" rx="2" stroke="#E8751A" stroke-width="2" stroke-dasharray="4 2"/>
+              <rect x="8" y="20" width="48" height="36" rx="2" fill="#E8751A" opacity="0.08"/>
+              <path d="M18,56 L18,30 L32,20 L46,30 L46,56" stroke="#E8751A" stroke-width="2"/>
+              <circle cx="32" cy="10" r="6" stroke="#E8751A" stroke-width="2"/>
+              <path d="M29,10 L35,10 M32,7 L32,13" stroke="#E8751A" stroke-width="1.5"/>
+              <rect x="26" y="38" width="12" height="18" stroke="#E8751A" stroke-width="1.5"/>
+            </svg>
+          </div>
+          <h3>Ristrutturazione</h3>
+          <p>Rinnoviamo e riqualifichiamo immobili esistenti, rispettando le caratteristiche architettoniche originali e migliorando efficienza energetica e comfort.</p>
+        </div>
+        <!-- Tinteggiatura -->
+        <div class="service-card">
+          <div class="service-icon">
+            <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="24" y="8" width="16" height="28" rx="3" stroke="#E8751A" stroke-width="2"/>
+              <rect x="24" y="8" width="16" height="28" rx="3" fill="#E8751A" opacity="0.15"/>
+              <rect x="28" y="12" width="8" height="16" rx="1" fill="#E8751A" opacity="0.3"/>
+              <rect x="30" y="36" width="4" height="20" fill="#8B6914" stroke="#6B4F0E" stroke-width="1"/>
+              <path d="M14,52 Q14,44 22,44 L42,44 Q50,44 50,52 L50,56 L14,56Z" fill="#E8751A" opacity="0.1" stroke="#E8751A" stroke-width="1.5"/>
+            </svg>
+          </div>
+          <h3>Tinteggiatura</h3>
+          <p>Servizi professionali di tinteggiatura per interni ed esterni, con vernici di qualità e finiture decorative per ogni ambiente.</p>
+        </div>
+        <!-- Posa Vetri -->
+        <div class="service-card">
+          <div class="service-icon">
+            <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="12" y="10" width="40" height="44" rx="2" stroke="#E8751A" stroke-width="2"/>
+              <rect x="12" y="10" width="40" height="44" rx="2" fill="#87CEEB" opacity="0.2"/>
+              <line x1="32" y1="10" x2="32" y2="54" stroke="#E8751A" stroke-width="1.5"/>
+              <line x1="12" y1="32" x2="52" y2="32" stroke="#E8751A" stroke-width="1.5"/>
+              <path d="M18,16 L26,24" stroke="#87CEEB" stroke-width="1.5" opacity="0.6"/>
+              <path d="M38,16 L46,24" stroke="#87CEEB" stroke-width="1.5" opacity="0.6"/>
+              <path d="M18,38 L26,46" stroke="#87CEEB" stroke-width="1.5" opacity="0.6"/>
+            </svg>
+          </div>
+          <h3>Posa Vetri</h3>
+          <p>Installazione professionale di vetrate, finestre e serramenti. Soluzioni su misura per massimizzare luminosità e isolamento termico.</p>
+        </div>
+        <!-- Finiture -->
+        <div class="service-card">
+          <div class="service-icon">
+            <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="8" y="48" width="48" height="8" rx="1" fill="#E8751A" opacity="0.15" stroke="#E8751A" stroke-width="1.5"/>
+              <rect x="8" y="8" width="16" height="16" rx="1" fill="#E8751A" opacity="0.1" stroke="#E8751A" stroke-width="1.5"/>
+              <rect x="28" y="8" width="16" height="16" rx="1" fill="#E8751A" opacity="0.2" stroke="#E8751A" stroke-width="1.5"/>
+              <rect x="8" y="28" width="16" height="16" rx="1" fill="#E8751A" opacity="0.2" stroke="#E8751A" stroke-width="1.5"/>
+              <rect x="28" y="28" width="16" height="16" rx="1" fill="#E8751A" opacity="0.1" stroke="#E8751A" stroke-width="1.5"/>
+              <rect x="48" y="8" width="8" height="36" rx="1" fill="#E8751A" opacity="0.15" stroke="#E8751A" stroke-width="1.5"/>
+            </svg>
+          </div>
+          <h3>Finiture</h3>
+          <p>Pavimentazioni, rivestimenti, intonaci e opere di completamento per interni ed esterni, con attenzione al dettaglio e ai materiali.</p>
+        </div>
+        <!-- Consulenza -->
+        <div class="service-card">
+          <div class="service-icon">
+            <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="12" y="8" width="40" height="48" rx="3" fill="#E8751A" opacity="0.1" stroke="#E8751A" stroke-width="2"/>
+              <line x1="20" y1="20" x2="44" y2="20" stroke="#E8751A" stroke-width="1.5"/>
+              <line x1="20" y1="28" x2="44" y2="28" stroke="#E8751A" stroke-width="1.5"/>
+              <line x1="20" y1="36" x2="36" y2="36" stroke="#E8751A" stroke-width="1.5"/>
+              <circle cx="44" cy="44" r="8" stroke="#E8751A" stroke-width="2"/>
+              <line x1="50" y1="50" x2="56" y2="56" stroke="#E8751A" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h3>Consulenza</h3>
+          <p>Sopralluoghi gratuiti e consulenza tecnica per valutare interventi, costi e tempistiche. Vi guidiamo dalla progettazione alla realizzazione.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- I Nostri Lavori -->
+  <section class="section" id="lavori">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge">Portfolio</span>
+        <h2>I nostri <span class="highlight">lavori</span></h2>
+        <p>Una selezione dei progetti realizzati. Ogni lavoro racconta la nostra dedizione alla qualità.</p>
+      </div>
+      <div class="projects-filters" id="projectsFilters">
+        <!-- Filter buttons loaded dynamically -->
+      </div>
+      <div class="carousel-container" id="carouselContainer">
+        <button class="carousel-arrow carousel-arrow-left" id="carouselLeft" aria-label="Scorri a sinistra">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+        </button>
+        <div class="carousel-track" id="projectsGrid">
+          <!-- Projects loaded dynamically -->
+        </div>
+        <button class="carousel-arrow carousel-arrow-right" id="carouselRight" aria-label="Scorri a destra">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+        </button>
+      </div>
+      <div class="projects-empty" id="projectsEmpty" style="display:none;">
+        <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
+          <rect x="10" y="20" width="60" height="50" rx="4" stroke="#ccc" stroke-width="2" stroke-dasharray="6 3"/>
+          <circle cx="30" cy="40" r="6" stroke="#ccc" stroke-width="2"/>
+          <path d="M15,60 L30,48 L45,55 L60,38 L70,45" stroke="#ccc" stroke-width="2"/>
+        </svg>
+        <p>I nostri lavori saranno pubblicati a breve. Torna presto!</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Project Modal -->
+  <div class="modal-overlay" id="projectModal">
+    <div class="modal">
+      <button class="modal-close" id="modalClose">&times;</button>
+      <div class="modal-gallery" id="modalGallery"></div>
+      <div class="modal-info">
+        <span class="modal-category" id="modalCategory"></span>
+        <h3 id="modalTitle"></h3>
+        <p id="modalDescription"></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Contatti -->
+  <section class="section section-alt" id="contatti">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge">Contatti</span>
+        <h2>Parliamo del tuo <span class="highlight">progetto</span></h2>
+        <p>Contattaci per un preventivo gratuito o per qualsiasi informazione. Siamo a tua disposizione.</p>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-info">
+          <div class="contact-card">
+            <div class="contact-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E8751A" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div>
+              <h4>Sede</h4>
+              <p>Via dei Fiori, 19<br>40050 Monterenzio (BO)</p>
+            </div>
+          </div>
+          <div class="contact-card">
+            <div class="contact-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E8751A" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22,4 L12,13 L2,4"/></svg>
+            </div>
+            <div>
+              <h4>Email</h4>
+              <p>info@ediltrentini.it</p>
+            </div>
+          </div>
+          <div class="contact-card">
+            <div class="contact-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E8751A" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            </div>
+            <div>
+              <h4>Telefono</h4>
+              <p>Chiamaci per un appuntamento</p>
+            </div>
+          </div>
+          <div class="contact-card">
+            <div class="contact-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E8751A" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <div>
+              <h4>Orari</h4>
+              <p>Lun - Ven: 7:30 - 18:00<br>Sabato: 8:00 - 12:00</p>
+            </div>
+          </div>
+        </div>
+        <div class="contact-form-wrapper">
+          <form class="contact-form" id="contactForm">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="name">Nome e Cognome</label>
+                <input type="text" id="name" name="name" required placeholder="Mario Rossi">
+              </div>
+              <div class="form-group">
+                <label for="phone">Telefono</label>
+                <input type="tel" id="phone" name="phone" placeholder="333 1234567">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" required placeholder="mario@esempio.it">
+            </div>
+            <div class="form-group">
+              <label for="service">Servizio richiesto</label>
+              <select id="service" name="service">
+                <option value="">Seleziona un servizio...</option>
+                <option value="costruzione">Costruzione</option>
+                <option value="ristrutturazione">Ristrutturazione</option>
+                <option value="tinteggiatura">Tinteggiatura</option>
+                <option value="posa-vetri">Posa Vetri</option>
+                <option value="finiture">Finiture</option>
+                <option value="altro">Altro</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="message">Messaggio</label>
+              <textarea id="message" name="message" rows="4" required placeholder="Descrivi il tuo progetto o la tua richiesta..."></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary btn-lg btn-full">Invia Richiesta</button>
+          </form>
+          <div class="form-success" id="formSuccess" style="display:none;">
+            <svg width="48" height="48" viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="22" fill="#4A7C59" opacity="0.1" stroke="#4A7C59" stroke-width="2"/><polyline points="16,24 22,30 32,18" stroke="#4A7C59" stroke-width="3" fill="none"/></svg>
+            <h3>Richiesta inviata!</h3>
+            <p>Grazie per averci contattato. Ti risponderemo il prima possibile.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Map -->
+  <section class="map-section">
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11380.0!2d11.4!3d44.33!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x132b0a0000000001%3A0x1!2sMonterenzio+BO!5e0!3m2!1sit!2sit!4v1"
+      width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"
+      title="Mappa Edil Trentini - Monterenzio">
+    </iframe>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="#" class="logo">
+            <span class="logo-icon">
+              <svg width="28" height="28" viewBox="0 0 32 32" fill="none">
+                <rect x="2" y="14" width="28" height="16" rx="2" fill="#E8751A"/>
+                <polygon points="16,2 30,14 2,14" fill="#fff" opacity="0.3"/>
+                <rect x="12" y="18" width="8" height="12" fill="#F5F3EF"/>
+              </svg>
+            </span>
+            <span class="logo-text" style="color:#fff">Edil<strong>Trentini</strong></span>
+          </a>
+          <p>Impresa edile di fiducia dal 2008. Costruzioni, ristrutturazioni e finiture a Monterenzio e provincia di Bologna.</p>
+        </div>
+        <div class="footer-links">
+          <h4>Navigazione</h4>
+          <ul>
+            <li><a href="#chi-siamo">Chi Siamo</a></li>
+            <li><a href="#servizi">Servizi</a></li>
+            <li><a href="#lavori">I Nostri Lavori</a></li>
+            <li><a href="#contatti">Contatti</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>Servizi</h4>
+          <ul>
+            <li><a href="#servizi">Costruzione</a></li>
+            <li><a href="#servizi">Ristrutturazione</a></li>
+            <li><a href="#servizi">Tinteggiatura</a></li>
+            <li><a href="#servizi">Finiture</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>Contatti</h4>
+          <ul>
+            <li>Via dei Fiori, 19</li>
+            <li>40050 Monterenzio (BO)</li>
+            <li>info@ediltrentini.it</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2024 Edil Trentini S.N.C. di Trentini Marco e Tiziano — P.IVA 02811071204</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+</body>
+</html>

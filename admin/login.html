@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin — Edil Trentini</title>
+  <link rel="stylesheet" href="/admin/css/admin.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="login-page">
+  <div class="login-container">
+    <div class="login-card">
+      <div class="login-header">
+        <svg width="48" height="48" viewBox="0 0 32 32" fill="none">
+          <rect x="2" y="14" width="28" height="16" rx="2" fill="#E8751A"/>
+          <polygon points="16,2 30,14 2,14" fill="#2D2D2D"/>
+          <rect x="12" y="18" width="8" height="12" fill="#F5F3EF"/>
+        </svg>
+        <h1>Edil<strong>Trentini</strong></h1>
+        <p>Pannello Amministrazione</p>
+      </div>
+      <form id="loginForm">
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input type="text" id="username" name="username" required autocomplete="username" placeholder="admin">
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" required autocomplete="current-password" placeholder="Password">
+        </div>
+        <div class="form-error" id="loginError" style="display:none;"></div>
+        <button type="submit" class="btn btn-primary btn-full">Accedi</button>
+      </form>
+      <a href="/" class="back-link">Torna al sito</a>
+    </div>
+  </div>
+  <script>
+    document.getElementById('loginForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const errEl = document.getElementById('loginError');
+      errEl.style.display = 'none';
+
+      try {
+        const res = await fetch('/admin/api/login', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            username: document.getElementById('username').value,
+            password: document.getElementById('password').value
+          })
+        });
+
+        const data = await res.json();
+        if (res.ok && data.success) {
+          window.location.href = '/admin/';
+        } else {
+          errEl.textContent = data.error || 'Credenziali non valide';
+          errEl.style.display = 'block';
+        }
+      } catch {
+        errEl.textContent = 'Errore di connessione al server';
+        errEl.style.display = 'block';
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "WebSearch",
+      "WebFetch(domain:registroaziende.it)",
+      "WebFetch(domain:www.informazione-aziende.it)",
+      "WebFetch(domain:www.coobiz.it)",
+      "WebFetch(domain:www.reportaziende.it)",
+      "Bash(npm install:*)",
+      "Bash(timeout 10 node:*)",
+      "Bash(node:*)",
+      "Bash(cd:*)"
+    ]
+  }
+}
