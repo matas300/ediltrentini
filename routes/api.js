@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const { getDb } = require('../db/init');
+const nodemailer = require('nodemailer');
 
 // GET all published projects
 router.get('/projects', async (req, res) => {
@@ -50,6 +51,46 @@ router.get('/projects', async (req, res) => {
   } catch (err) {
     console.error(err);
     res.status(500).json({ error: 'Errore nel recupero dei progetti' });
+  }
+});
+
+// POST contact form — invia email a ediltrentinisnc@gmail.com
+router.post('/contact', async (req, res) => {
+  const { name, email, phone, service, message } = req.body;
+
+  if (!name || !email || !message) {
+    return res.status(400).json({ error: 'Campi obbligatori mancanti' });
+  }
+
+  const transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+      user: process.env.GMAIL_USER,
+      pass: process.env.GMAIL_PASS,
+    },
+  });
+
+  const mailOptions = {
+    from: process.env.GMAIL_USER,
+    to: 'ediltrentinisnc@gmail.com',
+    replyTo: email,
+    subject: `Nuova richiesta dal sito — ${name}`,
+    html: `
+      <h2>Nuova richiesta di contatto</h2>
+      <p><strong>Nome:</strong> ${name}</p>
+      <p><strong>Email:</strong> ${email}</p>
+      ${phone ? `<p><strong>Telefono:</strong> ${phone}</p>` : ''}
+      ${service ? `<p><strong>Servizio:</strong> ${service}</p>` : ''}
+      <p><strong>Messaggio:</strong><br>${message.replace(/\n/g, '<br>')}</p>
+    `,
+  };
+
+  try {
+    await transporter.sendMail(mailOptions);
+    res.json({ ok: true });
+  } catch (err) {
+    console.error('Errore invio email:', err);
+    res.status(500).json({ error: 'Errore durante l\'invio della email' });
   }
 });
 

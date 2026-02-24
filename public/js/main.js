@@ -260,11 +260,35 @@ document.addEventListener('keydown', (e) => {
 });
 
 // ---- Contact form ----
-document.getElementById('contactForm').addEventListener('submit', (e) => {
+document.getElementById('contactForm').addEventListener('submit', async (e) => {
   e.preventDefault();
-  // In a real scenario, this would send to a backend
-  document.getElementById('contactForm').style.display = 'none';
-  document.getElementById('formSuccess').style.display = 'block';
+  const form = e.target;
+  const btn = form.querySelector('button[type="submit"]');
+  btn.disabled = true;
+  btn.textContent = 'Invio in corso...';
+
+  const body = {
+    name: form.name.value,
+    email: form.email.value,
+    phone: form.phone?.value || '',
+    service: form.service?.value || '',
+    message: form.message.value,
+  };
+
+  try {
+    const res = await fetch('/api/contact', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(body),
+    });
+    if (!res.ok) throw new Error();
+    form.style.display = 'none';
+    document.getElementById('formSuccess').style.display = 'block';
+  } catch {
+    btn.disabled = false;
+    btn.textContent = 'Invia Richiesta';
+    alert('Errore durante l\'invio. Riprova o contattaci direttamente per email.');
+  }
 });
 
 // ---- Scroll animations ----
