@@ -18,11 +18,21 @@ npm run dev          # Start with --watch for auto-reload
 
 - **server.js** — Express entry point. Serves static files and mounts API routes. Sessions via express-session.
 - **db/init.js** — SQLite database (sql.js, pure JS). Creates tables on first run, seeds admin user. Exports `getDb()` (async) and `saveDb()`. DB file: `ediltrentini.db`.
-- **routes/api.js** — Public API: `GET /api/projects` (returns projects with images grouped).
-- **routes/admin.js** — Protected admin API behind session auth. CRUD for projects, image upload via multer. All mutations call `saveDb()` to persist sql.js in-memory DB to disk.
+- **routes/api.js** — Public API mounted at `/api`. `GET /api/projects` returns projects with images grouped.
+- **routes/admin.js** — Protected admin API mounted at `/admin/api`. CRUD for projects, image upload via multer. Auth via `requireAuth` middleware checking `req.session.userId`. All mutations call `saveDb()` to persist sql.js in-memory DB to disk.
 - **public/** — Landing page frontend (HTML/CSS/JS). Projects section loads dynamically from `/api/projects`.
 - **admin/** — Admin panel SPA. Login at `/admin/login.html`, dashboard at `/admin/`. Manages projects with image upload.
 - **uploads/** — Uploaded project images (gitignored).
+
+### Database Schema
+
+Three tables: `users` (id, username, password), `projects` (id, title, description, category, created_at, updated_at), `project_images` (id, project_id FK, filename, original_name, is_cover).
+
+### Admin API Endpoints
+
+- `POST /admin/api/login` / `POST /admin/api/logout` / `GET /admin/api/me` — Auth
+- `GET|POST /admin/api/projects`, `PUT|DELETE /admin/api/projects/:id` — Project CRUD
+- `DELETE /admin/api/images/:id` — Delete single image
 
 ## Key Details
 
