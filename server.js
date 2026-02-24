@@ -1,21 +1,33 @@
 require('dotenv').config();
 const express = require('express');
 const session = require('express-session');
+const rateLimit = require('express-rate-limit');
 const path = require('path');
 const { getDb } = require('./db/init');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+// Rate limiter: max 10 tentativi di login ogni 15 minuti per IP
+const loginLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000,
+  max: 10,
+  message: { error: 'Troppi tentativi. Riprova tra 15 minuti.' },
+  standardHeaders: true,
+  legacyHeaders: false,
+});
+
 // Middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(session({
-  secret: 'ediltrentini-secret-key-change-in-production',
+  secret: process.env.SESSION_SECRET,
   resave: false,
   saveUninitialized: false,
   cookie: { maxAge: 24 * 60 * 60 * 1000 } // 24 hours
 }));
+
+app.use('/admin/api/login', loginLimiter);
 
 // Static files
 app.use('/', express.static(path.join(__dirname, 'public')));
