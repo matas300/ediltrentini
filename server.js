@@ -3,6 +3,7 @@ const express = require('express');
 const session = require('express-session');
 const rateLimit = require('express-rate-limit');
 const path = require('path');
+const { exec } = require('child_process');
 const { getDb } = require('./db/init');
 
 const app = express();
@@ -37,6 +38,19 @@ app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 // Routes
 app.use('/api', require('./routes/api'));
 app.use('/admin/api', require('./routes/admin'));
+
+// GitLab webhook — auto deploy on push
+app.post('/webhook', (req, res) => {
+  const token = req.headers['x-gitlab-token'];
+  if (!token || token !== process.env.WEBHOOK_SECRET) {
+    return res.status(401).json({ error: 'Unauthorized' });
+  }
+  res.status(200).json({ ok: true });
+  exec('git pull && pm2 restart all', { cwd: __dirname }, (err, stdout, stderr) => {
+    if (err) console.error('[webhook] Deploy fallito:', err.message);
+    else console.log('[webhook] Deploy ok:', stdout.trim());
+  });
+});
 
 // Initialize DB and start server
 getDb().then(() => {
