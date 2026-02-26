@@ -50,16 +50,22 @@ async function getDb() {
     )
   `);
 
-  // Seed admin user if not exists
+  // Sync admin password from environment variable
+  const adminPassword = process.env.ADMIN_PASSWORD;
+  if (!adminPassword) {
+    throw new Error('ADMIN_PASSWORD non configurata nel file .env');
+  }
+
   const existing = db.exec("SELECT COUNT(*) as count FROM users WHERE username = 'admin'");
   const count = existing.length > 0 ? existing[0].values[0][0] : 0;
+  const hash = bcrypt.hashSync(adminPassword, 10);
 
   if (count === 0) {
-    const hash = bcrypt.hashSync('ediltrentini2024', 10);
     db.run("INSERT INTO users (username, password) VALUES (?, ?)", ['admin', hash]);
-    saveDb();
-    console.log('Admin user created (admin / ediltrentini2024)');
+  } else {
+    db.run("UPDATE users SET password = ? WHERE username = 'admin'", [hash]);
   }
+  saveDb();
 
   return db;
 }
