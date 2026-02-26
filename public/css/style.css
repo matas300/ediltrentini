@@ -208,9 +208,12 @@ ul { list-style: none; }
 .hero-bg {
   position: absolute;
   inset: 0;
+  overflow: hidden;
 }
 
 .hero-bg img {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -892,19 +895,29 @@ ul { list-style: none; }
 
   .hero-content {
     padding: 100px 0 60px;
+    text-align: center;
+  }
+
+  .hero h1,
+  .hero-subtitle {
+    text-align: center;
   }
 
   .hero-stats {
     gap: 24px;
     flex-wrap: wrap;
+    justify-content: center;
   }
 
   .hero-cta {
     flex-direction: column;
+    align-items: center;
   }
 
   .hero-cta .btn {
-    text-align: center;
+    width: 100%;
+    max-width: 320px;
+    padding: 13px 24px;
   }
 
   .services-grid {
