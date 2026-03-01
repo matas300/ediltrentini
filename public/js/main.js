@@ -308,3 +308,64 @@ document.querySelectorAll('.service-card, .contact-card').forEach(el => {
 
 // ---- Init ----
 loadProjects();
+
+// ---- Cookie Consent ----
+const CONSENT_KEY = 'ediltrentini_cookie_consent';
+const MAP_SRC = 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2845.0!2d11.3488!3d44.2627!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x132b0f3c8e4b7b1d%3A0x4b0f3c8e4b7b1d!2sVia+Roma%2C+20%2C+40050+Loiano+BO!5e0!3m2!1sit!2sit!4v1';
+
+function loadMap() {
+  const placeholder = document.getElementById('mapPlaceholder');
+  const container   = document.getElementById('mapIframe');
+  if (!placeholder || !container) return;
+
+  placeholder.style.display = 'none';
+  container.style.display = '';
+  container.innerHTML = `<iframe
+    src="${MAP_SRC}"
+    width="100%" height="350" style="border:0;display:block;"
+    allowfullscreen="" loading="lazy"
+    referrerpolicy="no-referrer-when-downgrade"
+    title="Mappa Edil Trentini - Loiano">
+  </iframe>`;
+}
+
+function hideBanner() {
+  const banner = document.getElementById('cookieBanner');
+  if (banner) {
+    banner.classList.remove('visible');
+    setTimeout(() => banner.remove(), 400);
+  }
+}
+
+function acceptCookies() {
+  localStorage.setItem(CONSENT_KEY, 'accepted');
+  hideBanner();
+  loadMap();
+}
+
+function rejectCookies() {
+  localStorage.setItem(CONSENT_KEY, 'rejected');
+  hideBanner();
+}
+
+// Collega pulsanti banner
+document.getElementById('btnCookieAccept')?.addEventListener('click', acceptCookies);
+document.getElementById('btnCookieReject')?.addEventListener('click', rejectCookies);
+
+// Pulsante "Accetta e mostra mappa" nel placeholder
+document.getElementById('btnShowMap')?.addEventListener('click', acceptCookies);
+
+// Controlla consenso salvato
+const savedConsent = localStorage.getItem(CONSENT_KEY);
+
+if (savedConsent === 'accepted') {
+  // Già accettato: carica mappa silenziosamente
+  loadMap();
+} else if (!savedConsent) {
+  // Prima visita: mostra il banner dopo un breve ritardo
+  setTimeout(() => {
+    const banner = document.getElementById('cookieBanner');
+    if (banner) banner.classList.add('visible');
+  }, 800);
+}
+// Se 'rejected': non fare nulla (mappa non caricata, banner già chiuso)
